@@ -140,6 +140,7 @@ int trace_func_return(struct pt_regs *ctx)
         return 0;   // missed start
     }
     delta = bpf_ktime_get_ns() - *tsp;
+    bpf_trace_printk("%d\\n", delta);
     start.delete(&pid);
     FACTOR
 
